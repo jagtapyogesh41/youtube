@@ -41,22 +41,30 @@
                 
             </div>
             <hr>
-            <div id="results">
-                
-
+            <div id="watch-video">
+               
             </div>
         </div>
         
     </div>
     
-
-
-
-    
-    <!-- <h3>es6</h3>
-    <input  type="text" id="query">
-    <input type="submit" value="search" onclick="main()"> -->
-    
 </body>
 </html>
-<script src="youtube.js"></script>
+<!-- <script src="./youtube.js"></script> -->
+<script>
+let video = JSON.parse(localStorage.getItem("video"))
+console.log(video.videoId)
+const div = document.createElement('div');
+
+let iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${video.videoId}`;
+    iframe.allow = "fullscreen";
+
+    const h3 = document.createElement('h3');
+    h3.innerText=video.title
+
+div.append(iframe,h3)
+document.querySelector('#watch-video').append(div)
+
+
+</script>
